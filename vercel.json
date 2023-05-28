@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [{ "src": "index.ts", "use": "@vercel/node" }],
+  "routes": [
+    { "src": "/matches", "dest": "index.ts" },
+    { "src": "/event", "dest": "index.ts" },
+    { "src": "/events", "dest": "index.ts" },
+    { "src": "/match", "dest": "index.ts" },
+    { "src": "/matchStats", "dest": "index.ts" },
+    { "src": "/matchMapStats", "dest": "index.ts" },
+    { "src": "/team", "dest": "index.ts" },
+    { "src": "/teamStats", "dest": "index.ts" },
+    { "src": "/player", "dest": "index.ts" },
+    { "src": "/playerStats", "dest": "index.ts" },
+    { "src": "/playerRanking", "dest": "index.ts" },
+    { "src": "/teamRanking", "dest": "index.ts" },
+    { "src": "/streams", "dest": "index.ts" }
+  ]
+}
