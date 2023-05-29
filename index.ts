@@ -27,11 +27,9 @@ app.get('/event', async (req, res) => {
 })
 
 app.get('/match', async (req, res) => {
-    setTimeout(() => {
         HLTV.getMatch({ id: req.query.id }).then((response) => {
         res.json(response);
         })
-    }, 3000);
 });
 
 app.get('/matchStats', async (req, res) => {
