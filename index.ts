@@ -6,16 +6,11 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.use(function(req: any, res: any, next: any) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 const server = http.createServer(app);
 
 app.get('/matches', async (req, res) => {
   HLTV.getMatches().then((response) => {
+    console.log(response, '[matches]')
     res.json(response);
   })
 });
