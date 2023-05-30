@@ -1,7 +1,6 @@
 const http = require('http');
 const express = require('express');
 const { HLTV } = require("hltv");
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const app = express();
 
@@ -9,8 +8,8 @@ app.use(express.static('public'));
 
 const server = http.createServer(app);
 
-app.get('/matches', async (req, res) => {
-  HLTV.getMatches().then((response) => {
+app.get('/matches', async (req: any, res: any) => {
+  HLTV.getMatches().then((response: any) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     console.log(response, 'getMatches');
@@ -18,74 +17,74 @@ app.get('/matches', async (req, res) => {
   })
 });
 
-app.get('/events', async (req, res) => {
-  HLTV.getEvents().then((response) => {
+app.get('/events', async (req: any, res: any) => {
+  HLTV.getEvents().then((response: any) => {
     res.json(response);
   })
 });
 
-app.get('/event', async (req, res) => {
-    HLTV.getEvent({ id: req.query.id }).then((response) => {
+app.get('/event', async (req: any, res: any) => {
+    HLTV.getEvent({ id: req.query.id }).then((response: any) => {
         res.json(response);
 })
 })
 
-app.get('/match', async (req, res) => {
-        HLTV.getMatch({ id: req.query.id }).then((response) => {
+app.get('/match', async (req: any, res: any) => {
+        HLTV.getMatch({ id: req.query.id }).then((response: any) => {
         res.json(response);
         })
 });
 
-app.get('/matchStats', async (req, res) => {
-    HLTV.getMatchStats({ id: req.query.id}).then((response) => {
+app.get('/matchStats', async (req: any, res: any) => {
+    HLTV.getMatchStats({ id: req.query.id}).then((response: any) => {
         res.json(response);
     });
 });
 
-app.get('/matchMapStats', async (req, res) => {
-    HLTV.getMatchMapStats({ id: req.query.id }).then((response) => {
+app.get('/matchMapStats', async (req: any, res: any) => {
+    HLTV.getMatchMapStats({ id: req.query.id }).then((response: any) => {
         res.json(response);
 })
 })
 
-app.get('/team', async (req, res) => {
-    HLTV.getTeam({ id: req.query.id}).then((response) => {
+app.get('/team', async (req: any, res: any) => {
+    HLTV.getTeam({ id: req.query.id}).then((response: any) => {
         res.json(response);
     })
 });
 
-app.get('/teamStats', async (req, res) => {
-    HLTV.getTeamStats({ id: req.query.id }).then((response) => {
+app.get('/teamStats', async (req: any, res: any) => {
+    HLTV.getTeamStats({ id: req.query.id }).then((response: any) => {
     res.json(response);
 })
 });
 
-app.get('/player', async (req, res) => {
-    HLTV.getPlayer({ id: req.query.id }).then((response) => {
+app.get('/player', async (req: any, res: any) => {
+    HLTV.getPlayer({ id: req.query.id }).then((response: any) => {
     res.json(response)
 })
 });
 
-app.get('/playerStats', async (req, res) => {
-    HLTV.getPlayerStats({ id: req.query.id}).then((response) => {
+app.get('/playerStats', async (req: any, res: any) => {
+    HLTV.getPlayerStats({ id: req.query.id}).then((response: any) => {
         res.json(response);
     });
 });
 
-app.get('/playerRanking', async (req, res) => {
-    HLTV.getPlayerRanking({ startDate: req.query.startDate, endDate: req.query.endDate }).then((response) => {
+app.get('/playerRanking', async (req: any, res: any) => {
+    HLTV.getPlayerRanking({ startDate: req.query.startDate, endDate: req.query.endDate }).then((response: any) => {
         res.json(response);
     });
 });
 
-app.get('/teamRanking', async (req, res) => {
-    HLTV.getTeamRanking().then((response) => {
+app.get('/teamRanking', async (req: any, res: any) => {
+    HLTV.getTeamRanking().then((response: any) => {
         res.json(response);
     });
 })
 
-app.get('/streams', async (req, res) => {
-    HLTV.getStreams().then((response) => {
+app.get('/streams', async (req: any, res: any) => {
+    HLTV.getStreams().then((response: any) => {
         res.json(response);
     })
 });
