@@ -1,69 +1,14 @@
 {
   "version": 2,
   "builds": [{ "src": "index.ts", "use": "@vercel/node" }],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
-      ]
-    }
-  ],
   "routes": [
     {
-      "src": "/matches",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/event",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/events",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/match",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/matchStats",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/matchMapStats",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/team",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/teamStats",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/player",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/playerStats",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/playerRanking",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/teamRanking",
-      "dest": "index.ts"
-    },
-    {
-      "src": "/streams",
-      "dest": "index.ts"
+      "src": "/(.*)",
+      "dest": "./index.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
     }
   ]
 }
