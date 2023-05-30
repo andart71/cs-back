@@ -1,9 +1,11 @@
 const http = require('http');
 const express = require('express');
 const { HLTV } = require("hltv");
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 app.use(express.static('public'));
 
 const server = http.createServer(app);
