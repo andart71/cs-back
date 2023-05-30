@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const { HLTV } = require("hltv");
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -9,9 +10,9 @@ app.use(express.static('public'));
 const server = http.createServer(app);
 
 app.get('/matches', async (req: any, res: any) => {
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
   HLTV.getMatches().then((response: any) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     console.log(response, 'getMatches');
     res.json(response);
   })
@@ -89,6 +90,4 @@ app.get('/streams', async (req: any, res: any) => {
     })
 });
 
-server.listen(3001, () => {
-    console.log('Server running');
-    })
+module.exports.handler = serverless(app);
