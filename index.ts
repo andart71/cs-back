@@ -13,6 +13,7 @@ app.get('/matches', async (req, res) => {
   HLTV.getMatches().then((response) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    console.log(response, 'getMatches');
     res.json(response);
   })
 });
