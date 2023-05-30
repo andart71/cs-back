@@ -14,5 +14,8 @@
     "hltv-api": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@vercel/node": "^2.14.3"
   }
 }

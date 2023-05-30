@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const { HLTV } = require("hltv");
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const app = express();
 
@@ -10,6 +11,8 @@ const server = http.createServer(app);
 
 app.get('/matches', async (req, res) => {
   HLTV.getMatches().then((response) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.json(response);
   })
 });
