@@ -83,6 +83,7 @@ app.get('/teamRanking', async (req: any, res: any) => {
     });
 })
 
+
 app.get('/streams', async (req: any, res: any) => {
     HLTV.getStreams().then((response: any) => {
         res.json(response);
