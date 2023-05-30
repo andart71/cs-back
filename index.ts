@@ -1,7 +1,6 @@
 const http = require('http');
 const express = require('express');
 const { HLTV } = require("hltv");
-const serverless = require('serverless-http');
 
 const app = express();
 
@@ -90,4 +89,6 @@ app.get('/streams', async (req: any, res: any) => {
     })
 });
 
-module.exports.handler = serverless(app);
+server.listen(3001, () => {
+    console.log('Server running');
+    })
